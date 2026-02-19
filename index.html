@@ -11,118 +11,47 @@ margin:0;
 padding:0;
 box-sizing:border-box;
 font-family:Arial, Helvetica, sans-serif;
-scroll-behavior:smooth;
 }
 
 body{
 background:#0b0b0f;
 color:white;
-overflow-x:hidden;
 }
 
 /* HEADER */
 header{
-background:rgba(0,0,0,0.6);
-backdrop-filter:blur(10px);
+background:rgba(0,0,0,0.7);
 padding:20px 50px;
 display:flex;
 justify-content:space-between;
-align-items:center;
 position:fixed;
 width:100%;
-top:0;
 z-index:1000;
-border-bottom:1px solid rgba(255,255,255,0.1);
 }
 
-header h1{
-color:#ff9933;
-letter-spacing:2px;
-}
-
-nav a{
-color:white;
-text-decoration:none;
-margin-left:20px;
-transition:0.3s;
-font-weight:500;
-}
-
-nav a:hover{
-color:#ff9933;
-}
+header h1{ color:#ff9933; }
 
 /* HERO */
 .hero{
-height:100vh;
-background:url('https://images.unsplash.com/photo-1587474260584-136574528ed5') no-repeat center center/cover;
-background-attachment:fixed;
+height:90vh;
+background:url('https://images.unsplash.com/photo-1587474260584-136574528ed5') center/cover;
 display:flex;
 justify-content:center;
 align-items:center;
 text-align:center;
-position:relative;
-}
-
-.hero::before{
-content:"";
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.65);
 }
 
 .hero h2{
-position:relative;
-font-size:55px;
-z-index:2;
-animation:fadeIn 2s ease;
+font-size:45px;
+background:rgba(0,0,0,0.6);
+padding:20px;
+border-radius:10px;
 }
 
-/* IMAGE SLIDER */
-.slider{
-position:relative;
-width:100%;
-height:500px;
-overflow:hidden;
-}
-
-.slides{
-display:flex;
-width:300%;
-height:100%;
-animation:slide 15s infinite;
-}
-
-.slides img{
-width:100%;
-height:500px;
-object-fit:cover;
-}
-
-@keyframes slide{
-0%{transform:translateX(0);}
-33%{transform:translateX(0);}
-38%{transform:translateX(-100%);}
-66%{transform:translateX(-100%);}
-71%{transform:translateX(-200%);}
-100%{transform:translateX(-200%);}
-}
-
-/* SECTIONS */
+/* SECTION */
 section{
-padding:120px 50px;
+padding:120px 40px;
 text-align:center;
-opacity:0;
-transform:translateY(50px);
-transition:1s;
-}
-
-section.show{
-opacity:1;
-transform:translateY(0);
 }
 
 /* CARDS */
@@ -130,82 +59,92 @@ transform:translateY(0);
 display:flex;
 flex-wrap:wrap;
 justify-content:center;
-gap:30px;
-margin-top:50px;
+gap:25px;
 }
 
 .card{
-background:rgba(255,255,255,0.05);
-border:1px solid rgba(255,255,255,0.1);
-backdrop-filter:blur(15px);
-padding:30px;
+background:#111;
+border-radius:12px;
+overflow:hidden;
 width:280px;
-border-radius:15px;
-transition:0.4s;
+transition:0.3s;
 }
 
 .card:hover{
-transform:translateY(-10px);
-box-shadow:0 0 25px rgba(255,153,51,0.5);
-border-color:#ff9933;
+transform:translateY(-8px);
+box-shadow:0 0 20px rgba(255,153,51,0.5);
+}
+
+.card img{
+width:100%;
+height:180px;
+object-fit:cover;
+}
+
+.card-content{
+padding:20px;
 }
 
 .card h3{
-margin-bottom:15px;
 color:#ff9933;
+margin-bottom:10px;
 }
 
-/* BUTTON */
 button{
-padding:12px 25px;
+padding:8px 18px;
 border:none;
-background:linear-gradient(45deg,#ff9933,#ff5722);
+background:#ff9933;
 color:white;
+border-radius:20px;
 cursor:pointer;
-border-radius:30px;
-margin-top:15px;
-transition:0.3s;
-font-weight:bold;
+margin-top:10px;
 }
 
-button:hover{
-transform:scale(1.05);
-box-shadow:0 0 15px #ff9933;
+/* MODAL */
+.modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.8);
+justify-content:center;
+align-items:center;
 }
 
-/* CONTACT */
-.contact-form{
-max-width:500px;
-margin:auto;
-margin-top:40px;
-display:flex;
-flex-direction:column;
-gap:15px;
-}
-
-input, textarea{
-padding:12px;
+.modal-content{
+background:#111;
+padding:30px;
 border-radius:10px;
+width:90%;
+max-width:400px;
+text-align:left;
+}
+
+.modal-content h3{
+color:#ff9933;
+margin-bottom:15px;
+}
+
+.modal-content input{
+width:100%;
+padding:10px;
+margin-bottom:10px;
 border:none;
-background:rgba(255,255,255,0.1);
-color:white;
+border-radius:5px;
 }
 
-input:focus, textarea:focus{
-outline:1px solid #ff9933;
+.close{
+float:right;
+cursor:pointer;
+color:red;
 }
 
-/* FOOTER */
 footer{
 background:#111;
 padding:20px;
 text-align:center;
-border-top:1px solid rgba(255,255,255,0.1);
-}
-
-@keyframes fadeIn{
-from{opacity:0; transform:translateY(-20px);}
-to{opacity:1; transform:translateY(0);}
 }
 </style>
 </head>
@@ -214,119 +153,100 @@ to{opacity:1; transform:translateY(0);}
 
 <header>
 <h1>TourWithPassion 🇮🇳</h1>
-<nav>
-<a href="#home">Home</a>
-<a href="#about">About</a>
-<a href="#destinations">Destinations</a>
-<a href="#packages">Packages</a>
-<a href="#contact">Contact</a>
-</nav>
 </header>
 
-<section class="hero show" id="home">
+<section class="hero">
 <h2>Explore Incredible India With Passion ✨</h2>
 </section>
 
-<!-- INDIA IMAGE SLIDER -->
-<div class="slider">
-<div class="slides">
-<img src="https://images.unsplash.com/photo-1564507592333-c60657eea523">
-<img src="https://images.unsplash.com/photo-1587474260584-136574528ed5">
-<img src="https://images.unsplash.com/photo-1599661046289-e31897846e41">
-</div>
-</div>
-
-<section id="about">
-<h2>About Us</h2>
-<p style="margin-top:20px; max-width:800px; margin-left:auto; margin-right:auto;">
-TourWithPassion offers curated travel experiences across India's most breathtaking destinations.
-</p>
-</section>
-
-<section id="destinations">
+<section>
 <h2>Top Indian Destinations</h2>
+
 <div class="cards">
+
 <div class="card">
+<img src="https://images.unsplash.com/photo-1597074866923-dc0589150358">
+<div class="card-content">
 <h3>Goa</h3>
-<p>Beaches, nightlife & Portuguese charm</p>
-<button>Book Now</button>
+<p>Beaches & nightlife</p>
+<button onclick="openModal('Goa')">View Details</button>
 </div>
+</div>
+
 <div class="card">
+<img src="https://images.unsplash.com/photo-1506197603052-3cc9c3a201bd">
+<div class="card-content">
 <h3>Manali</h3>
-<p>Snow mountains & adventure sports</p>
-<button>Book Now</button>
+<p>Snow mountains adventure</p>
+<button onclick="openModal('Manali')">View Details</button>
 </div>
+</div>
+
 <div class="card">
+<img src="https://images.unsplash.com/photo-1524499982521-1ffd58dd89ea">
+<div class="card-content">
 <h3>Jaipur</h3>
-<p>Royal palaces & rich heritage</p>
-<button>Book Now</button>
+<p>Royal heritage city</p>
+<button onclick="openModal('Jaipur')">View Details</button>
 </div>
+</div>
+
 <div class="card">
-<h3>Kerala</h3>
-<p>Backwaters & nature paradise</p>
-<button>Book Now</button>
+<img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b">
+<div class="card-content">
+<h3>Sikkim</h3>
+<p>Peaceful Himalayan beauty</p>
+<button onclick="openModal('Sikkim')">View Details</button>
 </div>
+</div>
+
 <div class="card">
-<h3>Ladakh</h3>
-<p>High altitude desert & scenic roads</p>
-<button>Book Now</button>
+<img src="https://images.unsplash.com/photo-1549880187-7f2d0a3b8f7a">
+<div class="card-content">
+<h3>Darjeeling</h3>
+<p>Tea gardens & mountain views</p>
+<button onclick="openModal('Darjeeling')">View Details</button>
 </div>
+</div>
+
 <div class="card">
-<h3>Andaman</h3>
-<p>Crystal clear islands & diving</p>
-<button>Book Now</button>
+<img src="https://images.unsplash.com/photo-1583212292454-1fe6229603b7">
+<div class="card-content">
+<h3>Puri</h3>
+<p>Temple & beach destination</p>
+<button onclick="openModal('Puri')">View Details</button>
 </div>
+</div>
+
 </div>
 </section>
 
-<section id="packages">
-<h2>India Tour Packages</h2>
-<div class="cards">
-<div class="card">
-<h3>Budget Explorer</h3>
-<p>4 Days / 3 Nights</p>
-<p>₹14,999</p>
-<button>Select</button>
-</div>
-<div class="card">
-<h3>Premium India</h3>
-<p>6 Days / 5 Nights</p>
-<p>₹29,999</p>
-<button>Select</button>
-</div>
-<div class="card">
-<h3>Luxury Maharaja</h3>
-<p>8 Days / 7 Nights</p>
-<p>₹59,999</p>
-<button>Select</button>
-</div>
-</div>
-</section>
-
-<section id="contact">
-<h2>Contact Us</h2>
-<div class="contact-form">
+<!-- MODAL -->
+<div class="modal" id="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal()">X</span>
+<h3 id="placeName"></h3>
+<p>Fill this form to book your trip:</p>
 <input type="text" placeholder="Your Name">
 <input type="email" placeholder="Your Email">
-<textarea rows="5" placeholder="Your Message"></textarea>
-<button>Send Message</button>
+<input type="date">
+<button onclick="alert('Booking request sent!')">Book Now</button>
 </div>
-</section>
+</div>
 
 <footer>
 <p>© 2026 TourWithPassion | Explore India 🇮🇳</p>
 </footer>
 
 <script>
-const sections = document.querySelectorAll("section");
-window.addEventListener("scroll", () => {
-sections.forEach(section => {
-const sectionTop = section.getBoundingClientRect().top;
-if(sectionTop < window.innerHeight - 100){
-section.classList.add("show");
+function openModal(place){
+document.getElementById("modal").style.display="flex";
+document.getElementById("placeName").innerText=place;
 }
-});
-});
+
+function closeModal(){
+document.getElementById("modal").style.display="none";
+}
 </script>
 
 </body>
