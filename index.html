@@ -35,11 +35,6 @@ z-index:1000;
 
 header h1{
 color:#00bfff;
-transition:0.3s;
-}
-
-header h1:hover{
-transform:scale(1.05);
 }
 
 nav a{
@@ -124,102 +119,7 @@ background:#009acd;
 transform:scale(1.05);
 }
 
-/* FOOTER */
-footer{
-background:#111;
-padding:20px;
-text-align:center;
-}
-
-/* KEYFRAMES */
-@keyframes fadeIn{
-from{opacity:0; transform:translateY(-20px);}
-to{opacity:1; transform:translateY(0);}
-}
-
-body{
-background:#0f0f0f;
-color:white;
-}
-
-header{
-background:#111;
-padding:20px 50px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-position:fixed;
-width:100%;
-top:0;
-z-index:1000;
-}
-
-header h1{
-color:#00bfff;
-}
-
-nav a{
-color:white;
-text-decoration:none;
-margin-left:20px;
-transition:0.3s;
-}
-
-nav a:hover{
-color:#00bfff;
-}
-
-section{
-padding:100px 50px;
-text-align:center;
-}
-
-.hero{
-height:100vh;
-background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') no-repeat center center/cover;
-display:flex;
-justify-content:center;
-align-items:center;
-}
-
-.hero h2{
-font-size:50px;
-background:rgba(0,0,0,0.6);
-padding:20px;
-border-radius:10px;
-}
-
-.cards{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:20px;
-margin-top:40px;
-}
-
-.card{
-background:#1a1a1a;
-padding:20px;
-width:250px;
-border-radius:10px;
-transition:0.3s;
-}
-
-.card:hover{
-transform:scale(1.05);
-background:#222;
-}
-
-button{
-padding:10px 20px;
-border:none;
-background:#00bfff;
-color:white;
-cursor:pointer;
-border-radius:5px;
-margin-top:10px;
-}
-
+/* CONTACT */
 .contact-form{
 max-width:500px;
 margin:auto;
@@ -235,10 +135,17 @@ border:none;
 border-radius:5px;
 }
 
+/* FOOTER */
 footer{
 background:#111;
 padding:20px;
 text-align:center;
+}
+
+/* KEYFRAMES */
+@keyframes fadeIn{
+from{opacity:0; transform:translateY(-20px);}
+to{opacity:1; transform:translateY(0);}
 }
 </style>
 </head>
@@ -256,15 +163,15 @@ text-align:center;
 </nav>
 </header>
 
-<section class="hero" id="home">
+<section class="hero show" id="home">
 <h2>Explore The World With Passion 🌍</h2>
 </section>
 
 <section id="about">
 <h2>About Us</h2>
 <p style="margin-top:20px; max-width:800px; margin-left:auto; margin-right:auto;">
-TourWithPassion is dedicated to creating unforgettable travel experiences. 
-We believe traveling is not just about visiting places — it's about creating memories.
+TourWithPassion creates unforgettable travel experiences. 
+We turn journeys into lifetime memories.
 </p>
 </section>
 
@@ -334,8 +241,7 @@ We believe traveling is not just about visiting places — it's about creating m
 <p>© 2026 TourWithPassion | Designed with passion ❤️</p>
 </footer>
 
-</body>
-  <script>
+<script>
 const sections = document.querySelectorAll("section");
 
 window.addEventListener("scroll", () => {
@@ -347,4 +253,6 @@ section.classList.add("show");
 });
 });
 </script>
+
+</body>
 </html>
