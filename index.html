@@ -295,14 +295,45 @@ modal.style.display="none";
 }
 
 function submitBooking(){
-let name = document.getElementById("name").value;
-let email = document.getElementById("email").value;
-let date = document.getElementById("date").value;
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
-if(name === "" || email === "" || date === ""){
-alert("Please fill all fields!");
-return;
-}
+<script>
+   (function(){
+      emailjs.init("YOUR_PUBLIC_KEY"); // 🔥 Replace with your Public Key
+   })();
+
+   function submitBooking(){
+      let name = document.getElementById("name").value;
+      let email = document.getElementById("email").value;
+      let date = document.getElementById("date").value;
+
+      if(name === "" || email === "" || date === ""){
+         alert("Please fill all fields!");
+         return;
+      }
+
+      emailjs.send("service_w05v78b", "YOUR_TEMPLATE_ID", {
+         name: name,
+         email: email,
+         date: date,
+         place: "Selected Place"
+      })
+      .then(function(response) {
+         document.getElementById("successMsg").style.display="block";
+
+         setTimeout(()=>{
+            document.getElementById("modal").style.display="none";
+            document.getElementById("successMsg").style.display="none";
+            document.getElementById("name").value="";
+            document.getElementById("email").value="";
+            document.getElementById("date").value="";
+         },2000);
+
+      }, function(error) {
+         alert("FAILED... " + JSON.stringify(error));
+      });
+   }
+</script>
 
 document.getElementById("successMsg").style.display="block";
 
